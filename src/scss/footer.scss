@@ -1,0 +1,130 @@
+.footer {
+    background: rgba(242, 248, 242, 0.5);
+
+    &__top {
+        @include adaptiveValue("padding-top", 68, 30);
+        @include adaptiveValue("padding-bottom", 100, 30);
+        border-bottom: rem(1) solid rgba(38, 50, 56, 0.31);
+        display: grid;
+
+        @media (max-width:768px) {
+            row-gap: rem(20);
+        }
+
+        @media (min-width:769px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width:$tablet) {
+            grid-template-columns: percent(352, 1620) 1fr percent(363, 1620);
+        }
+
+        @include adaptiveValue("column-gap", 30, 10);
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+
+        @media (max-width:768px) {
+            justify-self: center;
+            align-items: center;
+        }
+    }
+
+    &__logo {
+        display: inline-block;
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 24, 15);
+        }
+    }
+
+    &__form {
+        justify-self: center;
+
+        &-text {
+            &:not(:last-child) {
+                @include adaptiveValue("margin-bottom", 24, 15);
+            }
+        }
+    }
+
+    &__contacts {
+        @media (max-width:768px) {
+            justify-self: center;
+        }
+
+        @media (min-width:$tablet) {
+            justify-self: end;
+        }
+
+        display: flex;
+        flex-wrap: wrap-reverse;
+        @include adaptiveValue("gap", 48, 24);
+
+        &-label {
+            display: block;
+            font-weight: 700;
+            font-size: rem(16);
+            @include adaptiveValue("margin-bottom", 24, 15);
+        }
+
+        &-item {
+            width: rem(48);
+            font-size: rem(16);
+        }
+    }
+
+
+    &__bottom {
+        @include adaptiveValue("padding-top", 56, 20);
+        @include adaptiveValue("padding-bottom", 56, 20);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-copy {
+            font-weight: 300;
+            font-size: rem(12);
+            line-height: math.div(13, 12);
+        }
+
+        @media (max-width:768px) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    .footer-menu {
+        &__list {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: rem(14);
+
+            @media (max-width:768px) {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        &__item {
+            padding-top: rem(10);
+            padding-bottom: rem(10);
+
+            &:not(:last-child) {
+                @include adaptiveValue("padding-right", 40, 15);
+            }
+        }
+
+        &__link {
+            transition: color 0.3s ease 0s;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $accentColor;
+                }
+            }
+        }
+    }
+}

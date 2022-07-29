@@ -1,0 +1,55 @@
+.download {
+    &__wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: rgba(0, 128, 0, 0.05);
+        border-radius: rem(20);
+        padding: rem(72) rem(15) rem(66);
+        overflow: hidden;
+        @include adaptiveValue("padding-top", 72, 40);
+        @include adaptiveValue("padding-bottom", 66, 40);
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 128, 0, 0.34);
+            @include adaptiveValue("width", 585, 350);
+            @include adaptiveValue("height", 585, 350);
+            top: 0;
+            left: 50%;
+        }
+
+        &::before {
+            transform: translate(-50%, -18%);
+        }
+
+        &::after {
+            transform: translate(-50%, -6%);
+        }
+    }
+
+    &__title {
+        line-height: math.div(63, 56);
+        @include adaptiveValue("font-size", 56, 35);
+
+        @media (min-width:$tablet) {
+            max-width: rem(620);
+        }
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 39, 15);
+        }
+    }
+
+    &__app {
+        position: relative;
+        z-index: 3;
+        display: inline-block;
+        padding: rem(10) rem(12);
+    }
+}

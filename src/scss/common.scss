@@ -1,0 +1,135 @@
+// Заголовки, общие БЄМ блоки и проче...
+
+.title {
+    font-weight: 700;
+    line-height: math.div(78, 70);
+    @include adaptiveValue("font-size", 70, 45);
+
+    @media (max-width:$mobileSmall) {
+        text-align: center;
+    }
+
+    &:not(:last-child) {
+        @include adaptiveValue("margin-bottom", 32, 20);
+    }
+
+    span {
+        color: $accentColor;
+    }
+}
+
+.text {
+    line-height: 180%;
+    @include adaptiveValue("font-size", 18, 16);
+}
+
+.section-offset {
+    @include adaptiveValue("padding-bottom", 200, 30);
+}
+
+.block-item {
+    display: grid;
+
+    @media (min-width:$tablet) {
+        grid-template-columns: 1fr percent(750, 1420);
+
+    }
+
+    &__text {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 48, 25);
+        }
+    }
+
+    &__image {
+        display: flex;
+        align-self: start;
+        background-color: rgba(0, 128, 0, 0.05);
+        border-radius: rem(20);
+
+        &-box {
+            position: relative;
+            z-index: 2;
+            flex: 1 1 100%;
+            text-align: center;
+        }
+
+        img {
+            object-fit: cover;
+            max-width: 100%;
+            border-radius: rem(20);
+        }
+    }
+}
+
+.steps {
+    @media (min-width:992px) {
+        max-width: rem(490);
+    }
+
+    width: 100%;
+
+    &__item {
+        display: flex;
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 48, 25);
+        }
+    }
+
+    &__icon {
+        width: rem(110);
+        height: rem(110);
+        border-radius: 50%;
+        background-color: rgba(0, 128, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 rem(110);
+        @include adaptiveValue("margin-right", 32, 20);
+
+        @media (max-width:575px) {
+            width: rem(80);
+            height: rem(80);
+            flex: 0 0 rem(80);
+        }
+
+        img {
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: rem(20);
+        line-height: math.div(22, 20);
+
+        &:not(:last-child) {
+            margin-bottom: rem(16);
+        }
+
+        &_choose-block {
+            font-weight: 500;
+            line-height: math.div(22, 20);
+            @include adaptiveValue("font-size", 20, 18);
+        }
+    }
+
+    &__button {
+        @include adaptiveValue("font-size", 18, 16);
+        line-height: math.div(20, 18);
+        min-width: rem(222);
+    }
+}
+
+.social {
+    display: flex;
+    align-items: center;
+
+    &__item {
+        &:not(:last-child) {
+            margin-right: rem(16);
+        }
+    }
+}

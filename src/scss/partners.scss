@@ -1,0 +1,24 @@
+.partners {
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__item {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-right", 108, 20);
+        }
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}

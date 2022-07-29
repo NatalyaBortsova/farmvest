@@ -1,0 +1,118 @@
+.hero {
+
+    &__container-big {
+        position: relative;
+    }
+
+    &__content {
+        position: relative;
+        z-index: 2;
+        padding-top: rem(260);
+        padding-bottom: rem(215);
+        @include adaptiveValue("padding-top", 260, 180);
+        @include adaptiveValue("padding-bottom", 215, 150);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    &__title {
+        max-width: rem(830);
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 69, 30);
+        }
+
+    }
+
+    &__text {
+        max-width: rem(580);
+       
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 48, 20);
+        }
+    }
+
+    &__form {
+        max-width: 533px;
+        width: 100%;
+    }
+}
+
+.icons-hero {
+    &__item {
+        pointer-events: none;
+        position: absolute;
+
+        @media (max-width:$mobile) {
+            opacity: 0.7;
+        }
+
+        &_circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            @include adaptiveValue("width", 585, 350);
+            @include adaptiveValue("height", 585, 350);
+
+            &::after,
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                pointer-events: none;
+                border-radius: 50%;
+                border: rem(1) solid $accentColor;
+                width: 100%;
+                height: 100%;
+
+            }
+
+            &::before {
+                transform: translate(calc(-50% - rem(28)), -37%);
+            }
+
+            &::after {
+                transform: translate(calc(-50% + rem(27)), -46%);
+            }
+        }
+
+        &_1 {
+            top: percent(682, 974);
+            left: rem(15);
+        }
+
+        &_2 {
+            top: percent(380, 974);
+            left: percent(237, 1620);
+        }
+
+        &_3 {
+            top: percent(757, 974);
+            left: percent(403, 1620);
+        }
+
+        &_4 {
+            top: percent(134, 974);
+            left: percent(1149, 1620);
+        }
+
+        &_5 {
+            top: percent(367, 974);
+            right: rem(15);
+        }
+
+        &_6 {
+            top: percent(419, 974);
+            left: percent(1325, 1620);
+        }
+
+        &_7 {
+            top: percent(776, 974);
+            left: percent(1321, 1620);
+        }
+    }
+
+}
